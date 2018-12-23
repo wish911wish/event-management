@@ -1,24 +1,33 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true, null: false, unique: true|
 
-* Ruby version
+### Association
+- has_many :events, through: :attend_states
+- has_many :attend_states
 
-* System dependencies
+## events table
 
-* Configuration
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true, null: false|
 
-* Database creation
+### Association
+- has_many :users, through: :attend_states
+- has_many :attend_states
 
-* Database initialization
+## attend_states table
 
-* How to run the test suite
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|event_id|references|foreign_key: true|
+|attend|integer||
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
+- belongs_to :event
