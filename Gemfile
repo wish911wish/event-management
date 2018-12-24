@@ -58,5 +58,4 @@ gem 'haml-rails'
 
 gem 'erb2haml'
 
-gem 'bootstrap-sass'
-
+gem 'bootstrap', '~> 4.1.3'
