@@ -1,44 +1,46 @@
-%header.header
-  .container.text-center
-    %H1.header__title event-maneger
-    //TODO  ログイン操作はハンバーガーメニューにしたい
-    .header__user-authentication
-      %span.text-right.h4 ログイン
-      %span.text-right.h4 新規登録
+= render "./shared/header"
+
 %body.main
   .container
     .row
       .col-sm-6
-        .card.mx-auto.mb-2.border-0
-          .card-body
-            %h5.card-title イベントその１
-            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+        = link_to event_path(1) do
+          .card.mx-auto.mb-2.border-0
+            .card-body
+              %h5.card-title イベントその１
+              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
+              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
+              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+
       .col-sm-6
-        .card.mx-auto.mb-2.border-0
-          .card-body
-            %h5.card-title イベントその１
-            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+        = link_to event_path(1) do
+          .card.mx-auto.mb-2.border-0
+            .card-body
+              %h5.card-title イベントその１
+              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
+              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
+              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+
       .col-sm-6
-        .card.mx-auto.mb-2.border-0
-          .card-body
-            %h5.card-title イベントその１
-            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+        = link_to event_path(1) do
+          .card.mx-auto.mb-2.border-0
+            .card-body
+              %h5.card-title イベントその１
+              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
+              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
+              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+
       .col-sm-6
-        .card.mx-auto.mb-2.border-0
-          .card-body
-            %h5.card-title イベントその１
-            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+        = link_to event_path(1) do
+          .card.mx-auto.mb-2.border-0
+            .card-body
+              %h5.card-title イベントその１
+              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
+              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
+              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
 
 
 
-%footer.footer
-  .container.text-center
-    .header__title © Copyright kawakami All rights reserved.
+
+
+= render "./shared/footer"
