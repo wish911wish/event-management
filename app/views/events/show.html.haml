@@ -4,12 +4,7 @@
   .event.container.max-w
     .row
       .col-12
-        .card.mx-auto.mb-2.border-0
-          .card-body
-            %h5.card-title イベントその１
-            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+        =render "event", event: @event
 
   .container.max-w.mb-2
     .row

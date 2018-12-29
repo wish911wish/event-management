@@ -5,6 +5,9 @@ ul {
   list-style: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
 
 .header {
    color: $main-color;
@@ -30,14 +33,20 @@ ul {
   max-width: 430px;
 }
 
+//////トップページ////////
 .card{
   width: 100%;
   max-width: 400px;
   background-color: $sub-color;
   opacity: 0.6;
+  color: $font-main-color;
 }
 
+.card-body{
+  height: 175px;
+}
 
+//////詳細ページ////////
 .participation-btn{
   background-color: $accent-1st-color;
 }
