@@ -1,6 +1,10 @@
 @import "bootstrap";
 @import "config/variable";
 
+ul {
+  list-style: none;
+}
+
 
 .header {
    color: $main-color;
@@ -22,6 +26,9 @@
   }
 }
 
+.max-w{
+  max-width: 430px;
+}
 
 .card{
   width: 100%;
@@ -29,3 +36,21 @@
   background-color: $sub-color;
   opacity: 0.6;
 }
+
+
+.participation-btn{
+  background-color: $accent-1st-color;
+}
+.absence-btn{
+  background-color: $accent-2nd-color;
+}
+
+.participant-title{
+  color: $main-color;
+}
+
+.participant-list{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+

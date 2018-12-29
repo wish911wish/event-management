@@ -1,46 +1,45 @@
 = render "./shared/header"
 
 %body.main
-  .container
+  .event.container.max-w
     .row
-      .col-sm-6
-        = link_to event_path(1) do
-          .card.mx-auto.mb-2.border-0
-            .card-body
-              %h5.card-title イベントその１
-              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+      .col-12
+        .card.mx-auto.mb-2.border-0
+          .card-body
+            %h5.card-title イベントその１
+            %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
+            %h6.card-subtitle.mb-2.text-muted 富士緑地公園
+            %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
 
-      .col-sm-6
-        = link_to event_path(1) do
-          .card.mx-auto.mb-2.border-0
-            .card-body
-              %h5.card-title イベントその１
-              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
-
-      .col-sm-6
-        = link_to event_path(1) do
-          .card.mx-auto.mb-2.border-0
-            .card-body
-              %h5.card-title イベントその１
-              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
-
-      .col-sm-6
-        = link_to event_path(1) do
-          .card.mx-auto.mb-2.border-0
-            .card-body
-              %h5.card-title イベントその１
-              %h6.card-subtitle.mb-2.text-muted 2018/12/30  9:00 ~ 15:00
-              %h6.card-subtitle.mb-2.text-muted 富士緑地公園
-              %p.card-text サンプルサンプルサンプルサンプルサンプルサンプル
+  .container.max-w.mb-2
+    .row
+      .col-6
+        .w-50.mx-auto
+          %button.btn.w-100.participation-btn
+            参加
+      .col-6
+        .w-50.mx-auto
+          %button.btn.w-100.absence-btn
+            不参加
+  .container.max-w.mb-2
+    .row
+      .col-sm-12
+        %h5.card-title.text-center.participant-title 参加者
+        .participant
+          %ul.participant-list
+            %li.border-bottom
+              その１
+            %li.border-bottom
+              その２
+            %li.border-bottom
+              その２
+            %li.border-bottom
+              その２
 
 
-
-
+  -# .container
+  -#   .row
+  -#     .col-sm-12
+  -#       %h5.card-title.text-center 不参加者
 
 = render "./shared/footer"
