@@ -1,14 +1,31 @@
-= form_for(event) do |f|
-  - if event.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(event.errors.count, "error")
-        prohibited this event from being saved:
-      %ul
-        - event.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit
+.container.max-w.mb-2
+  .row
+    .col-12
+      .mx-auto.create-event__input-form
+        = form_for [@event] do |f|
+          .form-group.event__name
+            = f.label :name, class: "form__label" do
+              イベント名
+            = f.text_field :name, class: "form-control", placeholder: "イベント名を入力して下さい"
+
+          //TO DO  カレンデータ入力にチャレンジする。
+          .form-group.event__start-time
+            = f.label :start_time, class: "form__label" do
+              開始日時
+            = f.datetime_select :start_time, class: "form-control"
+
+          .form-group.event__end-time
+            = f.label :end_time, class: "form__label" do
+              終了日時
+            = f.datetime_select :end_time, class: "form-control"
+
+          .form-group.event__place
+            = f.label :place, class: "form__label" do
+              場所
+            = f.text_field :place, class: "form-control", placeholder: "開催場所を入力して下さい"
+
+          .form-group.event__comment
+            = f.label :comment, class: "form__label" do
+              コメント
+            = f.text_area :comment, class: "form-control", placeholder: "コメントを入力して下さい"
+          = f.submit "実行", class: "btn w-100 participation-btn"

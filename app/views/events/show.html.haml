@@ -6,10 +6,10 @@
       .col-12
         .card.mx-auto.mb-2.border-0.event
           =render "event", event: @event
-          - if current_user
+          - if current_user && @event.user_id == current_user.id
             .author-command
               = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 author-command__edit"
-              = link_to "イベントを削除する", "/events/#{@event}", method: :delete, class: "btn author-command__delete"
+              = link_to "イベントを削除する", "/events/#{@event.id}", method: :delete, class: "btn author-command__delete"
 
   .container.max-w.mb-2
     .row

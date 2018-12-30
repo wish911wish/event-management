@@ -21,10 +21,12 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.update(event_params) if @event.user_id == current_user.id
+
   end
 
   def destroy
-    @event.destroy
+    @event.destroy if @event.user_id == current_user.id
   end
 
   private
@@ -33,6 +35,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:name, :place ,:comment , :start_time, :end_time)
+      params.require(:event).permit(:name, :place ,:comment , :start_time, :end_time).merge(user_id: current_user.id)
     end
 end
