@@ -2,7 +2,7 @@
 
 %body.main
   .event.container.max-w
-    .row
+    .row.mb-2
       .col-12
         .card.mx-auto.mb-2.border-0.event
           =render "event", event: @event
@@ -11,29 +11,35 @@
               = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 author-command__edit"
               = link_to "イベントを削除する", "/events/#{@event.id}", method: :delete, class: "btn author-command__delete"
 
-  .container.max-w.mb-2
-    .row
+    .row.mb-2
       .col-6
         .w-50.mx-auto
-          %button.btn.w-100.participation-btn
-            参加
+          = link_to "参加", event_attend_statuses_path(@event, params: {attend: 1}), method: :post, class: "btn w-100 participation-btn"
       .col-6
         .w-50.mx-auto
-          %button.btn.w-100.absence-btn
-            不参加
-  .container.max-w.mb-2
-    .row
+          = link_to "欠席", event_attend_statuses_path(@event, params: {attend: 2}), method: :post, class: "btn w-100 absence-btn"
+
+
+    .row.mb-2
       .col-sm-12
-        %h5.card-title.text-center.participant-title 参加者
+        %h5.text-center.main-color 参加者
         .participant
           %ul.participant-list
-            %li.border-bottom
-              その１
-            %li.border-bottom
-              その２
-            %li.border-bottom
-              その２
-            %li.border-bottom
-              その２
+            - @participants.each do |participant|
+              %li.border-bottom
+                = participant.user.name
+
+    .row.mb-2
+      .col-sm-12
+        %h5.text-center.main-color 欠席者
+        .participant
+          %ul.participant-list
+            - @absentees.each do |absentee|
+              %li.border-bottom
+                = absentee.user.name
+
+
+
+
 
 = render "./shared/footer"

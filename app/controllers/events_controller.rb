@@ -2,10 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.order("updated_at DESC")
   end
 
   def show
+    @participants = @event.attend_statuses.where('attend = ?', 1).includes(:user).order("updated_at DESC")
+    @absentees = @event.attend_statuses.where('attend = ?', 2).includes(:user).order("updated_at DESC")
   end
 
   def new
