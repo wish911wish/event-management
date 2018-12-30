@@ -3,6 +3,7 @@
     %H1.header__title event-maneger
     //TODO  ログイン操作はハンバーガーメニューにしたい
     .header__user-authentication
-      %span.text-right.h4 ログイン
-      %span.text-right.h4 新規登録
+      = link_to "ログイン", new_user_session_path
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+      = link_to "新規登録", new_user_registration_path
       = link_to "イベント作成", new_event_path
