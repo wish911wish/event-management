@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181230021250) do
+ActiveRecord::Schema.define(version: 20181230033854) do
+
+  create_table "attend_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "attend"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attend_statuses_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_attend_statuses_on_user_id", using: :btree
+  end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -36,4 +46,6 @@ ActiveRecord::Schema.define(version: 20181230021250) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attend_statuses", "events"
+  add_foreign_key "attend_statuses", "users"
 end

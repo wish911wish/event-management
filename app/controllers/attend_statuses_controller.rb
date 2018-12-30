@@ -1,0 +1,2 @@
+class AttendStatusesController < ApplicationController
+end
