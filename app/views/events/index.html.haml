@@ -6,6 +6,7 @@
       - @events.each do |event|
         .col-sm-6
           = link_to event_path(event) do
-            =render "event", event: event
+            .card.mx-auto.mb-2.border-0.event
+              =render "event", event: event
 
 = render "./shared/footer"

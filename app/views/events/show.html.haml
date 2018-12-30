@@ -4,7 +4,12 @@
   .event.container.max-w
     .row
       .col-12
-        =render "event", event: @event
+        .card.mx-auto.mb-2.border-0.event
+          =render "event", event: @event
+          - if current_user
+            .author-command
+              = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 author-command__edit"
+              = link_to "イベントを削除する", "/events/#{@event}", method: :delete, class: "btn author-command__delete"
 
   .container.max-w.mb-2
     .row
