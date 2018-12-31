@@ -18,7 +18,9 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = Event.new(event_params)
+    binding.pry
     render :new unless @event.save
   end
 

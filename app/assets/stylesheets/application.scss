@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import "config/variable";
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
 
 ul {
   list-style: none;
@@ -9,6 +11,11 @@ ul {
 a:hover {
   text-decoration: none;
 }
+
+.main-color{
+  color: $main-color;
+}
+
 
 .container{
   max-width: 992px;
@@ -165,14 +172,35 @@ a:hover {
 }
 
 
-.main-color{
-  color: $main-color;
-}
-
 .participant-list{
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.absentee-list{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.js-add-attend{
+  background-color: transparent;
+  animation-name: add-attend;
+  animation-duration: 1s;
+  border-radius: 10%;
+  // transform: scale(0.01);
+}
+
+@keyframes add-attend {
+  0% {background-color: $main-color;}
+  100% {background-color: transparent;}
+}
+
+
+
+
+/////////////////////
+
 
 .create-event__title{
   color: $accent-1st-color;
