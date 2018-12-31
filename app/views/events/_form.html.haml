@@ -6,26 +6,26 @@
           .form-group.event__name
             = f.label :name, class: "form__label" do
               イベント名
-            = f.text_field :name, class: "form-control", placeholder: "イベント名を入力して下さい"
+            = f.text_field :name, class: "form-control", autocomplete: "off", placeholder: "イベント名を入力して下さい"
 
           //TO DO  カレンデータ入力にチャレンジする。
           .form-group.event__start-time
             = f.label :start_time, class: "form__label" do
               開始日時
-            = f.datetime_select :start_time, class: "form-control"
+            = f.text_field :start_time, class: "form-control datetimepicker-input", id: "start_time", autocomplete: "off", data: {toggle: "datetimepicker", target: "#start_time"}
 
           .form-group.event__end-time
             = f.label :end_time, class: "form__label" do
               終了日時
-            = f.datetime_select :end_time, class: "form-control"
+            = f.text_field :end_time, class: "form-control datetimepicker-input", id: "end_time", autocomplete: "off", data: {toggle: "datetimepicker", target: "#end_time"}
 
           .form-group.event__place
             = f.label :place, class: "form__label" do
               場所
-            = f.text_field :place, class: "form-control", placeholder: "開催場所を入力して下さい"
+            = f.text_field :place, class: "form-control", autocomplete: "off", placeholder: "開催場所を入力して下さい"
 
           .form-group.event__comment
             = f.label :comment, class: "form__label" do
               コメント
-            = f.text_area :comment, class: "form-control", placeholder: "コメントを入力して下さい"
+            = f.text_area :comment, class: "form-control", autocomplete: "off", placeholder: "コメントを入力して下さい"
           = f.submit "実行", class: "btn w-100 participation-btn"
