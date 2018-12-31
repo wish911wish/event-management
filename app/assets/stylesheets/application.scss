@@ -3,10 +3,15 @@
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 a:hover {
   text-decoration: none;
+}
+
+.container{
+  max-width: 992px;
 }
 
 .header {
@@ -19,15 +24,85 @@ a:hover {
    color: $main-color;
 }
 
-.header{
-  &__title{
-  }
-  &__user-authentication{
+//////////ヘッダー///////////
+.global-menu__trigger{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: $accent-1st-color;
+  z-index: 200;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.active .global-menu__body {
+  visibility: visible;
+}
+
+.active .global-menu__nav{
+  visibility: visible;
+}
+
+.global-menu{
+  &__trigger{
     position: absolute;
-    top: 0;
-    right: 10px;
+    top: 5px;
+    right: 5px;
+    background-color: $accent-1st-color;
+    z-index: 200;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  &__background{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: #FB9D7E;
+    z-index: 10;
+    width: 4000px;
+    height: 4000px;
+    margin: -2000px -2000px 0 0;
+    border-radius: 50%;
+    transition: all .4s ease-out;
+    transform: scale(0.01);
+    &.active{
+      transition: all .6s ease-in;
+      transform: scale(1);
+    }
+  }
+  &__body{
+    visibility: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+  }
+  &__nav{
+  }
+  &__list{
+  }
+  &__item{
   }
 }
+
+.nav-menu{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  background-color: $main-color;
+  width: 100vw;
+  height: 100vh;
+  &.active{
+    transition: .5s;
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+}
+
+
 
 .max-w{
   max-width: 430px;
@@ -37,6 +112,7 @@ a:hover {
 .card{
   width: 100%;
   max-width: 400px;
+  min-width: 350px;
   background-color: $sub-color;
   color: $font-main-color;
 }
@@ -72,12 +148,24 @@ a:hover {
 
 .participation-btn{
   background-color: $accent-1st-color;
-}
-.absence-btn{
-  background-color: $accent-2nd-color;
+  color: $font-main-color;
+  &:hover{
+    color: $font-main-color;
+    opacity: 0.6;
+  }
 }
 
-.participant-title{
+.absence-btn{
+  background-color: $accent-2nd-color;
+  color: $font-main-color;
+  &:hover{
+    color: $font-main-color;
+    opacity: 0.6;
+  }
+}
+
+
+.main-color{
   color: $main-color;
 }
 
@@ -85,10 +173,6 @@ a:hover {
   padding-left: 20px;
   padding-right: 20px;
 }
-
-
-
-
 
 .create-event__title{
   color: $accent-1st-color;
