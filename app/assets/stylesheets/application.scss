@@ -21,7 +21,7 @@ a:hover {
   max-width: 992px;
 }
 
-.header {
+.header__title{
    color: $main-color;
 }
 .main {
@@ -32,40 +32,81 @@ a:hover {
 }
 
 //////////ヘッダー///////////
-.global-menu__trigger{
+.menu-button{
   position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: $accent-1st-color;
-  z-index: 200;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  top: 15px;
+  left: 10px;
+  cursor: pointer;
 }
+
+.menu-button{
+  &__1st-bar{
+    @include menu-open();
+    transition: all .4s ease-out;
+  }
+  &__2nd-bar{
+    @include menu-open();
+    top: 8px;
+    transition: all .4s ease-out;
+  }
+  &__3rd-bar{
+    @include menu-open();
+    top: 16px;
+    transition: all .4s ease-out;
+  }
+}
+
+.active .menu-button__1st-bar{
+  transform: rotate(-45deg) translateX(-5.5px) translateY(5.5px);
+  transition: all .6s ease-out;
+}
+
+.active .menu-button__2nd-bar{
+  background-color: transparent;
+  transition: all .6s ease-out;
+}
+
+.active .menu-button__3rd-bar{
+  transform: rotate(45deg) translateX(-5.5px) translateY(-5.5px);
+  transition: all .6s ease-out;
+}
+
+
+  // & span:before{
+  //   bottom: -8px;
+  // }
+  // & span:after{
+  //   bottom: -16px;
+  // }
+
 
 .active .global-menu__body {
   visibility: visible;
 }
-
 .active .global-menu__nav{
   visibility: visible;
 }
 
+
+
+
+
 .global-menu{
   &__trigger{
-    position: absolute;
+    position: fixed;
     top: 5px;
     right: 5px;
-    background-color: $accent-1st-color;
+    background-color: $main-color;
     z-index: 200;
     width: 50px;
     height: 50px;
     border-radius: 50%;
   }
   &__background{
-    position: absolute;
+    position: fixed;
     right: 30px;
     top: 30px;
+
     background-color: #FB9D7E;
     z-index: 10;
     width: 4000px;
@@ -89,8 +130,13 @@ a:hover {
   &__nav{
   }
   &__list{
+    text-align: center;
+    font-size: 1.75rem;
   }
   &__item{
+    & a{
+      color: $white;
+    }
   }
 }
 
@@ -120,15 +166,41 @@ a:hover {
   width: 100%;
   max-width: 400px;
   min-width: 350px;
-  background-color: $sub-color;
-  color: $font-main-color;
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  &:hover{
+    background-color: $main-color;
+    color: $white;
+    animation-name: select-event;
+    animation-duration: .3s;
+  }
 }
+
+@keyframes select-event{
+  0% {background-color: $Lightgrey;}
+  100% {background-color: $main-color;}
+}
+
 
 .card-body{
   height: 175px;
+
 }
 
 //////詳細ページ////////
+.card-event-detail{
+  width: 100%;
+  max-width: 400px;
+  min-width: 350px;
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
 
 .author-command{
   padding: 0 1.25rem 1.25rem 1.25rem;
@@ -155,18 +227,18 @@ a:hover {
 
 .participation-btn{
   background-color: $accent-1st-color;
-  color: $font-main-color;
+  color: $white;
   &:hover{
-    color: $font-main-color;
+    color: $white;
     opacity: 0.6;
   }
 }
 
 .absence-btn{
   background-color: $accent-2nd-color;
-  color: $font-main-color;
+  color: $white;
   &:hover{
-    color: $font-main-color;
+    color: $white;
     opacity: 0.6;
   }
 }
@@ -188,7 +260,6 @@ a:hover {
   animation-name: add-attend;
   animation-duration: 1s;
   border-radius: 10%;
-  // transform: scale(0.01);
 }
 
 @keyframes add-attend {

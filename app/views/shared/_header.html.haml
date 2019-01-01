@@ -2,7 +2,11 @@
   .text-center
     = link_to "event-maneger", root_path, class: "h1 header__title"
     //TODO  ログイン操作はハンバーガーメニューにしたい
-  .global-menu__trigger
+  .global-menu__trigger.js-toggle-menu
+    .menu-button
+      %span.menu-button__1st-bar
+      %span.menu-button__2nd-bar
+      %span.menu-button__3rd-bar
   .global-menu__background.js-toggle-menu
   .global-menu__body.js-toggle-menu
     %nav.global-menu__nav
