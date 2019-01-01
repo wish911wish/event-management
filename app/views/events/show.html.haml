@@ -4,7 +4,7 @@
   .event.container.max-w
     .row.mb-2
       .col-12
-        .card.mx-auto.mb-2.border-0.event
+        .card-event-detail.mb-2
           = Time.now
           =render "event", event: @event
           - if current_user && @event.user_id == current_user.id
@@ -15,7 +15,6 @@
     .row.mb-2
       .col-6
         .w-50.mx-auto
-
           = link_to "参加", event_attend_statuses_path(@event, params: {attend: 1}), method: :post, class: "btn w-100 participation-btn", remote: :true
       .col-6
         .w-50.mx-auto
