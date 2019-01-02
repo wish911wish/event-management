@@ -1,7 +1,7 @@
 %header
   .text-center
     = link_to "event-maneger", root_path, class: "h1 header__title"
-    //TODO  ログイン操作はハンバーガーメニューにしたい
+  .user-info= current_user.name if current_user
   .global-menu__trigger.js-toggle-menu
     .menu-button
       %span.menu-button__1st-bar

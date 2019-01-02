@@ -26,7 +26,6 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params) if @event.user_id == current_user.id
-
   end
 
   def destroy

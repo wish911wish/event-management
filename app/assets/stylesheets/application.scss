@@ -71,15 +71,6 @@ a:hover {
   transition: all .6s ease-out;
 }
 
-
-  // & span:before{
-  //   bottom: -8px;
-  // }
-  // & span:after{
-  //   bottom: -16px;
-  // }
-
-
 .active .global-menu__body {
   visibility: visible;
 }
@@ -236,6 +227,15 @@ a:hover {
 
 .absence-btn{
   background-color: $accent-2nd-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+.accent-color-btn{
+  background-color: $accent-1st-color;
   color: $white;
   &:hover{
     color: $white;
