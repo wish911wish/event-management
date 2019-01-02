@@ -1,0 +1,27 @@
+$main-color: #FB9D7E;
+$sub-color: #F8CD9E;
+$accent-1st-color: #FB7D79;
+$accent-2nd-color: #AE9890;
+$accent-color: #38AEF0;
+$white: #FFFFFF;
+$Lightgrey: #EFEFEF;
+
+$font-main-color: #454545;
+$font-sub-color: #999999;
+
+
+
+@mixin hover-opacity(){
+  &:hover {opacity: 0.6;}
+}
+
+
+@mixin menu-open(){
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  border-radius: 4px;
+  background-color: $white;
+  display: block;
+  content: '';
+}

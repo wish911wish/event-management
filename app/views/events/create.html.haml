@@ -1,0 +1,11 @@
+= render "./shared/header"
+
+%body.main
+  .container.max-w.mb-2
+    .row
+      .col-12.text-center
+        .mx-auto.border-0
+          イベントが作成されました
+        = link_to "トップページへ戻る", root_path
+
+= render "./shared/footer"
