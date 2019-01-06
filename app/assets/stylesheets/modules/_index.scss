@@ -1,0 +1,63 @@
+//////トップページ////////
+.card{
+  width: 100%;
+  max-width: 400px;
+  min-width: 350px;
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  &:hover{
+    background-color: $main-color;
+    color: $white;
+    animation-name: select-event;
+    animation-duration: .3s;
+  }
+}
+
+@keyframes select-event{
+  0% {background-color: $Lightgrey;}
+  100% {background-color: $main-color;}
+}
+
+
+
+
+.card-body{
+  height: 175px;
+}
+
+.pagination{
+  display: inline-block;
+  & .page{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .next{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .last{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .first{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .prev{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .current{
+    color: $font-sub-color;
+  }
+}

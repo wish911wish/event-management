@@ -1,0 +1,31 @@
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.main-color{
+  color: $main-color;
+}
+
+.container{
+  max-width: 992px;
+}
+
+.header__title{
+   color: $main-color;
+}
+.main {
+   background-color: $white;
+}
+.footer {
+   color: $main-color;
+}
+
+.create-event__title{
+  color: $accent-1st-color;
+}

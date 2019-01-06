@@ -1,0 +1,100 @@
+//////詳細ページ////////
+.card-event-detail{
+  width: 100%;
+  max-width: 400px;
+  min-width: 350px;
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+
+.author-command{
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  &__edit{
+    display: block;
+    color: $font-main-color;
+    background-color: $accent-1st-color;
+    &:hover{
+      color: $font-main-color;
+      opacity: 0.6;
+    }
+  }
+
+  &__delete{
+    display: block;
+    color: $font-main-color;
+    background-color: $accent-1st-color;
+    &:hover{
+      color: $font-main-color;
+      opacity: 0.6;
+    }
+  }
+}
+
+.participation-btn{
+  background-color: $accent-1st-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+.absence-btn{
+  background-color: $accent-2nd-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+.accent-1st-color-btn{
+  background-color: $accent-1st-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+.accent-2nd-color-btn{
+  background-color: $accent-2nd-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+
+.participant-list{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.absentee-list{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.js-add-attend{
+  background-color: transparent;
+  animation-name: add-attend;
+  animation-duration: 1s;
+  border-radius: 10%;
+}
+
+@keyframes add-attend {
+  0% {background-color: $main-color;}
+  100% {background-color: transparent;}
+}
+
+
+

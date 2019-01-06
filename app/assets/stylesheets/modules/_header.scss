@@ -1,0 +1,140 @@
+//////////ヘッダー///////////
+.menu-button{
+  position: absolute;
+  top: 13px;
+  left: 6.5px;
+  cursor: pointer;
+}
+
+.menu-button{
+  &__1st-bar{
+    @include menu-open();
+    transition: all .4s ease-out;
+  }
+  &__2nd-bar{
+    @include menu-open();
+    top: 8px;
+    transition: all .4s ease-out;
+  }
+  &__3rd-bar{
+    @include menu-open();
+    top: 16px;
+    transition: all .4s ease-out;
+  }
+}
+
+.active .menu-button__1st-bar{
+  transform: rotate(-45deg) translateX(-5.5px) translateY(5.5px);
+  transition: all .6s ease-out;
+}
+
+.active .menu-button__2nd-bar{
+  background-color: transparent;
+  transition: all .6s ease-out;
+}
+
+.active .menu-button__3rd-bar{
+  transform: rotate(45deg) translateX(-5.5px) translateY(-5.5px);
+  transition: all .6s ease-out;
+}
+
+.active .global-menu__body {
+  visibility: visible;
+}
+.active .global-menu__nav{
+  visibility: visible;
+  opacity: 1;
+  transition: all .6s ease-in;
+}
+
+
+
+.global-menu{
+  height: 55px;
+  margin-bottom: 10px;
+  background-color: $main-color;
+  &__title{
+    color: $white;
+    margin-left: 15px;
+    line-height: 55px;
+    float:left;
+    &:hover{
+      color: $white;
+    }
+  }
+  &__user-info{
+    color: $white;
+    margin-right: 55px;
+    line-height: 55px;
+    float:right;
+    font-size: 16px;
+  }
+  &__trigger{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    background-color: $main-color;
+    z-index: 200;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  &__background{
+    position: fixed;
+    right: 30px;
+    top: 28px;
+    background-color: #FB9D7E;
+    z-index: 10;
+    width: 4000px;
+    height: 4000px;
+    margin: -2000px -2000px 0 0;
+    border-radius: 50%;
+    transition: all .4s ease-out;
+    transform: scale(0.01);
+    &.active{
+      transition: all .6s ease-in;
+      transform: scale(1);
+    }
+  }
+  &__body{
+    visibility: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+  }
+  &__nav{
+    opacity: 0;
+  }
+  &__list{
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  &__item{
+    & a{
+      color: $white;
+    }
+  }
+}
+
+
+.nav-menu{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  background-color: $main-color;
+  width: 100vw;
+  height: 100vh;
+  &.active{
+    transition: .5s;
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+}
+
+
+
+.max-w{
+  max-width: 430px;
+}
