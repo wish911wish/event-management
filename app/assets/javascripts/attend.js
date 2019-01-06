@@ -10,11 +10,12 @@ $(document).on("turbolinks:load", function() {
     $(deleteElement).remove()
   }
 
-  $(".js-participation").on("click", function(e){
+  function updateAttend(e, obj, attendList){
+    console.log(obj)
     e.preventDefault();
     e.stopPropagation();
-    var formData = new FormData(this);
-    var url = $(this).attr("href")
+    var formData = new FormData(obj);
+    var url = $(obj).attr("href")
     $.ajax({
       url: url,
       type: "POST",
@@ -26,33 +27,22 @@ $(document).on("turbolinks:load", function() {
     .done(function(data, status){
       var html = buildHTML(data);
       removeOldAttendHTML(data);
-      $('.participant-list').prepend(html)
+      attendList.prepend(html)
     })
     .fail(function(data){
       alert('エラーです。出欠情報が更新されませんでした。');
     })
+  }
+
+  $(".js-participation").on("click", function(e){
+    var obj = this
+    var attendList = $('.participant-list')
+    updateAttend(e, obj, attendList);
   })
 
   $(".js-absence").on("click", function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    var formData = new FormData(this);
-    var url = $(this).attr("href")
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(data, status){
-      var html = buildHTML(data);
-      removeOldAttendHTML(data);
-      $('.absentee-list').prepend(html)
-    })
-    .fail(function(data){
-      alert('エラーです。出欠情報が更新されませんでした。');
-    })
+    var obj = this
+    var attendList = $('.absentee-list')
+    updateAttend(e, obj, attendList);
   });
 });
