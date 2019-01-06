@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :attend_statuses, only: [:create]
   end
+  resources :groups, except: [:destroy] do
+    resources :group_members, only: [:create]
+  end
 end
