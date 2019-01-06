@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
@@ -18,5 +18,4 @@
 //= require moment/ja.js
 //= require tempusdominus-bootstrap-4.js
 //= require_tree .
-
 

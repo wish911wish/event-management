@@ -34,8 +34,8 @@ a:hover {
 //////////ヘッダー///////////
 .menu-button{
   position: absolute;
-  top: 15px;
-  left: 10px;
+  top: 13px;
+  left: 6.5px;
   cursor: pointer;
 }
 
@@ -76,28 +76,46 @@ a:hover {
 }
 .active .global-menu__nav{
   visibility: visible;
+  opacity: 1;
+  transition: all .6s ease-in;
 }
 
 
 
-
-
 .global-menu{
+  height: 55px;
+  margin-bottom: 10px;
+  background-color: $main-color;
+  &__title{
+    color: $white;
+    margin-left: 15px;
+    line-height: 55px;
+    float:left;
+    &:hover{
+      color: $white;
+    }
+  }
+  &__user-info{
+    color: $white;
+    margin-right: 55px;
+    line-height: 55px;
+    float:right;
+    font-size: 16px;
+  }
   &__trigger{
     position: fixed;
     top: 5px;
     right: 5px;
     background-color: $main-color;
     z-index: 200;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
   }
   &__background{
     position: fixed;
     right: 30px;
-    top: 30px;
-
+    top: 28px;
     background-color: #FB9D7E;
     z-index: 10;
     width: 4000px;
@@ -113,12 +131,13 @@ a:hover {
   }
   &__body{
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: 100;
   }
   &__nav{
+    opacity: 0;
   }
   &__list{
     text-align: center;
@@ -130,6 +149,7 @@ a:hover {
     }
   }
 }
+
 
 .nav-menu{
   display: block;
@@ -173,9 +193,47 @@ a:hover {
 }
 
 
+
+
 .card-body{
   height: 175px;
+}
 
+.pagination{
+  display: inline-block;
+  & .page{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .next{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .last{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .first{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .prev{
+    color: $main-color;
+    & a{
+      color: $main-color;
+    }
+  }
+  & .current{
+    color: $font-sub-color;
+  }
 }
 
 //////詳細ページ////////
@@ -234,8 +292,17 @@ a:hover {
   }
 }
 
-.accent-color-btn{
+.accent-1st-color-btn{
   background-color: $accent-1st-color;
+  color: $white;
+  &:hover{
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+.accent-2nd-color-btn{
+  background-color: $accent-2nd-color;
   color: $white;
   &:hover{
     color: $white;

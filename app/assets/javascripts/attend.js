@@ -10,8 +10,9 @@ $(document).on("turbolinks:load", function() {
     $(deleteElement).remove()
   }
 
-  $(".participation-btn").on("click", function(e){
+  $(".js-participation").on("click", function(e){
     e.preventDefault();
+    e.stopPropagation();
     var formData = new FormData(this);
     var url = $(this).attr("href")
     $.ajax({
@@ -32,8 +33,9 @@ $(document).on("turbolinks:load", function() {
     })
   })
 
-  $(".absence-btn").on("click", function(e){
+  $(".js-absence").on("click", function(e){
     e.preventDefault();
+    e.stopPropagation();
     var formData = new FormData(this);
     var url = $(this).attr("href")
     $.ajax({
@@ -48,6 +50,9 @@ $(document).on("turbolinks:load", function() {
       var html = buildHTML(data);
       removeOldAttendHTML(data);
       $('.absentee-list').prepend(html)
-    });
+    })
+    .fail(function(data){
+      alert('エラーです。出欠情報が更新されませんでした。');
+    })
   });
 });

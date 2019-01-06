@@ -5,20 +5,19 @@
     .row.mb-2
       .col-12
         .card-event-detail.mb-2
-          = Time.now
           =render "event", event: @event
           - if current_user && @event.user_id == current_user.id
             .author-command
-              = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 author-command__edit"
-              = link_to "イベントを削除する", "/events/#{@event.id}", method: :delete, class: "btn author-command__delete"
+              = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 accent-1st-color-btn author-command__edit"
+              = link_to "イベントを削除する", "/events/#{@event.id}", method: :delete, class: "btn accent-1st-color-btn author-command__delete"
     - if current_user
       .row.mb-2
         .col-6
           .w-50.mx-auto
-            = link_to "参加", event_attend_statuses_path(@event, params: {attend: 1}), method: :post, class: "btn w-100 participation-btn", remote: :true
+            = link_to "参加", event_attend_statuses_path(@event, params: {attend: 1}), method: :post, class: "btn w-100 js-participation accent-1st-color-btn", remote: :true
         .col-6
           .w-50.mx-auto
-            = link_to "欠席", event_attend_statuses_path(@event, params: {attend: 2}), method: :post, class: "btn w-100 absence-btn", remote: :true
+            = link_to "欠席", event_attend_statuses_path(@event, params: {attend: 2}), method: :post, class: "btn w-100 js-absence accent-2nd-color-btn", remote: :true
 
     .row.mb-2
       .col-sm-12
@@ -44,9 +43,9 @@
           .w-100.mx-auto
             .p.text-center.mb-4 出欠を登録するにはログインする必要があります
             .p.text-center ユーザー登録が完了している方
-            = link_to "ログイン", new_user_session_path, class: "btn w-100 accent-color-btn mb-4"
+            = link_to "ログイン", new_user_session_path, class: "btn w-100 accent-1st-color-btn mb-4"
             .p.text-center ユーザー登録が済んでいない方
-            = link_to "新規ユーザー登録", new_user_registration_path, class: "btn w-100 accent-color-btn mb-4"
+            = link_to "新規ユーザー登録", new_user_registration_path, class: "btn w-100 accent-1st-color-btn mb-4"
 
 
 

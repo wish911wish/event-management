@@ -68,3 +68,5 @@ gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
 
 gem 'jquery-turbolinks'
+
+gem 'kaminari'

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.order("updated_at DESC")
+    @events = Event.order("updated_at DESC").page(params[:page]).per(10)
   end
 
   def show
@@ -18,9 +18,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = Event.new(event_params)
-    binding.pry
     render :new unless @event.save
   end
 

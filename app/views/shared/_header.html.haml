@@ -1,7 +1,13 @@
 %header
-  .text-center
-    = link_to "event-maneger", root_path, class: "h1 header__title"
-  .user-info= current_user.name if current_user
+  .global-menu
+    = link_to "event-maneger", root_path, class: "h5 global-menu__title"
+    .global-menu__user-info
+      - if current_user
+        = current_user.name
+      - else
+        = "ログインはこちら⇨"
+
+
   .global-menu__trigger.js-toggle-menu
     .menu-button
       %span.menu-button__1st-bar
@@ -11,7 +17,9 @@
   .global-menu__body.js-toggle-menu
     %nav.global-menu__nav
       %ul.global-menu__list
-        %li.global-menu__item= link_to "ログイン", new_user_session_path
-        %li.global-menu__item= link_to "ログアウト", destroy_user_session_path, method: :delete
-        %li.global-menu__item= link_to "新規登録", new_user_registration_path
-        %li.global-menu__item= link_to "イベント作成", new_event_path
+        - if current_user
+          %li.global-menu__item= link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.global-menu__item= link_to "イベント作成", new_event_path
+        - else
+          %li.global-menu__item= link_to "ログイン", new_user_session_path
+          %li.global-menu__item= link_to "新規登録", new_user_registration_path
