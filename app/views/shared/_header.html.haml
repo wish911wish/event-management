@@ -20,6 +20,7 @@
         - if current_user
           %li.global-menu__item= link_to "ログアウト", destroy_user_session_path, method: :delete
           %li.global-menu__item= link_to "イベント作成", new_event_path
+          %li.global-menu__item= link_to "グループ作成", new_group_path
         - else
           %li.global-menu__item= link_to "ログイン", new_user_session_path
           %li.global-menu__item= link_to "新規登録", new_user_registration_path
