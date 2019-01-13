@@ -1,0 +1,16 @@
+= render "./shared/header"
+%body.main
+  %H1.text-center.create-event__title 新規グループ
+  .container.max-w.mb-2
+    .row
+      .col-12
+        .mx-auto.create-group__input-form
+          = form_for [@group] do |f|
+            .form-group.group__name
+              = f.label :name, class: "form__label" do
+                グループ名
+              = f.text_field :name, class: "form-control", autocomplete: "off", placeholder: "グループ名を入力して下さい"
+            = f.submit "実行", class: "btn w-100 participation-btn"
+
+= render "./shared/footer"
+
