@@ -70,3 +70,7 @@ gem 'momentjs-rails'
 gem 'jquery-turbolinks'
 
 gem 'kaminari'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
