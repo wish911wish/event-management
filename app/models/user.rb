@@ -3,7 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attr_accessible :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
+  # attr_accessible :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
 
   validates_presence_of   :avatar
   validates_integrity_of  :avatar
