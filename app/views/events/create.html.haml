@@ -7,6 +7,6 @@
         .mx-auto.border-0
           イベントが作成されました
         = link_to "トップページへ戻る", root_path
-        = link_to "イベントページ", "/events/#{@event.token}"
+        = link_to "イベントページ", "/events/#{@event.id}/#{@event.token}"
 
 = render "./shared/footer"

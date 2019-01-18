@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root 'events#index'
   resources :events do
     resources :attend_statuses, only: [:create]
+    get '/:token' => 'attend_statuses#edit'
   end
-  get 'events/:token' => 'attend_statuses#edit'
-
   resources :groups, except: [:destroy] do
     resources :group_members, only: [:create]
   end
