@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  after_initialize :set_token
+  before_create :set_token
   belongs_to    :user
   has_many      :users, through: :attend_statuses
   has_many      :attend_statuses, dependent: :destroy
