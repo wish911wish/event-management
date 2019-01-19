@@ -1,0 +1,26 @@
+= render "./shared/header"
+
+%body.main
+  %H1.text-center.create-event__title= "#{current_user.name}のマイページ"
+  .container
+    .row
+      %p.mx-auto.create-event__title 作成したイベント
+    .row
+      - @created_events.each do |event|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event
+            = link_to "", "/events/#{event.id}/#{event.token}"
+            = render "./events/event", event: event
+
+    .row
+      %p.mx-auto.create-event__title 出欠登録したイベント
+    .row
+      - @attendance_events.each do |event|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event
+            = link_to "", "/events/#{event.id}/#{event.token}"
+            = render "./events/event", event: event
+            = attend?(event)
+
+
+= render "./shared/footer"
