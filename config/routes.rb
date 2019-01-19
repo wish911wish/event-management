@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :groups, except: [:destroy] do
     resources :group_members, only: [:create]
   end
+  resources :users, only: [:show]
 end
