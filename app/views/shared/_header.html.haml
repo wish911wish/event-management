@@ -8,7 +8,6 @@
       - else
         = "ログインはこちら⇨"
 
-
   .global-menu__trigger.js-toggle-menu
     .menu-button
       %span.menu-button__1st-bar
@@ -20,6 +19,8 @@
       %ul.global-menu__list
         - if current_user
           %li.global-menu__item= link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.global-menu__item= link_to "マイページ", user_path(current_user)
+          %li.global-menu__item= link_to "ユーザー情報編集", edit_user_registration_path(current_user)
           %li.global-menu__item= link_to "イベント作成", new_event_path
           %li.global-menu__item= link_to "グループ作成", new_group_path
         - else
