@@ -18,24 +18,7 @@
         .col-6
           .w-50.mx-auto
             = link_to "欠席", event_attend_statuses_path(@event, params: {attend: 2}), method: :post, class: "btn w-100 js-absence accent-2nd-color-btn", remote: :true
-
-    .row.mb-2
-      .col-sm-12
-        %h5.text-center.main-color 参加者
-        .participant
-          %ul.participant-list
-            - @participants.each do |participant|
-              %li.border-bottom{id: "user-id_#{participant.user.id}"}
-                = participant.user.name
-
-    .row.mb-5
-      .col-sm-12
-        %h5.text-center.main-color 欠席者
-        .participant
-          %ul.absentee-list
-            - @absentees.each do |absentee|
-              %li.border-bottom{id: "user-id_#{absentee.user.id}"}
-                = absentee.user.name
+    = render "./shared/attend", participants: @participants, absentees: @absentees
 
     - if !current_user
       .row.mb-2

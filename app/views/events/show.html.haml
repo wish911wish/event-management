@@ -10,23 +10,7 @@
             .author-command
               = link_to "イベントを編集する", edit_event_path(@event), class: "btn mb-2 accent-1st-color-btn author-command__edit"
               = link_to "イベントを削除する", "/events/#{@event.id}", method: :delete, class: "btn accent-1st-color-btn author-command__delete"
-    .row.mb-2
-      .col-sm-12
-        %h5.text-center.main-color 参加者
-        .participant
-          %ul.participant-list
-            - @participants.each do |participant|
-              %li.border-bottom{id: "user-id_#{participant.user.id}"}
-                = participant.user.name
-
-    .row.mb-5
-      .col-sm-12
-        %h5.text-center.main-color 欠席者
-        .participant
-          %ul.absentee-list
-            - @absentees.each do |absentee|
-              %li.border-bottom{id: "user-id_#{absentee.user.id}"}
-                = absentee.user.name
+    = render "./shared/attend", participants: @participants, absentees: @absentees
 
     - if !current_user
       .row.mb-2
