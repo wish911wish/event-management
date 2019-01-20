@@ -1,10 +1,10 @@
 %header
   .global-menu
     = link_to "event-maneger", root_path, class: "h5 global-menu__title"
-    .global-menu__user-info
+    .global-menu__user-info.d-flex.align-items-center
       - if current_user
-        %span.user_image= image_tag current_user.avatar
-        %span= current_user.name
+        = lList_image(current_user)
+        = lList_name(current_user)
       - else
         = "ログインはこちら⇨"
 

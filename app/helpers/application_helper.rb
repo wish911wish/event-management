@@ -7,4 +7,17 @@ module ApplicationHelper
       content_tag :div, "不参加", class: "attendance-status status_absence"
     end
   end
+
+  def lList_image(object)
+    content_tag(:span, "", class: "object_image") do
+      image_tag object.avatar
+    end
+  end
+
+  def lList_name(object)
+    content_tag(:span, "", class: "object_name") do
+      object.name
+    end
+  end
+
 end
