@@ -11,7 +11,6 @@ $(document).on("turbolinks:load", function() {
   }
 
   function updateAttend(e, obj, attendList){
-    console.log(obj)
     e.preventDefault();
     e.stopPropagation();
     var formData = new FormData(obj);
