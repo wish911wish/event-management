@@ -3,33 +3,39 @@
     .col-12
       .mx-auto.create-event__input-form
         = form_for [@event] do |f|
+          .form-group.group__name
+            = f.label :group_id, "主催グループ",class: "form__label"
+            .js-group.form-control.organizer_group
+              .js-group__selected.selected-group.d-flex.align-items-center
+                = fa_icon 'chevron-down'
+                = "選択してください"
+            %ul.js-group__list.selection-candidate
+              - current_user.groups.each do |group|
+                %li.js-group__candidate.d-flex.align-items-center{group_id: "#{group.id}"}
+                  = lList_image(group)
+                  = lList_name(group)
+              %li.js-group__candidate.d-flex.align-items-center
+                = content_tag(:span, "", class: "object_image") do
+                  = image_tag "/uploads/no_image.png"
+                = content_tag(:span, "グループ無し", class: "object_name")
+
+            = f.hidden_field :group_id, class: "form-control", value: ""
           .form-group.event__name
-            = f.label :group_id, class: "form__label" do
-              主催グループ
-            = f.input
-            = f.text_field :group_id, class: "form-control", autocomplete: "off", placeholder: "イベント名を入力して下さい"
-            = f.hidden_field :group_id, class: "form-control"
-          .form-group.event__name
-            = f.label :name, class: "form__label" do
-              イベント名
+            = f.label :name, "イベント名",class: "form__label"
             = f.text_field :name, class: "form-control", autocomplete: "off", placeholder: "イベント名を入力して下さい"
           .form-group.event__start-time
-            = f.label :start_time, class: "form__label" do
-              開始日時
+            = f.label :start_time, "開始日時",class: "form__label"
             = f.text_field :start_time, class: "form-control datetimepicker-input", id: "start_time", autocomplete: "off", data: {toggle: "datetimepicker", target: "#start_time"}
 
           .form-group.event__end-time
-            = f.label :end_time, class: "form__label" do
-              終了日時
+            = f.label :end_time, "終了日時",class: "form__label"
             = f.text_field :end_time, class: "form-control datetimepicker-input", id: "end_time", autocomplete: "off", data: {toggle: "datetimepicker", target: "#end_time"}
 
           .form-group.event__place
-            = f.label :place, class: "form__label" do
-              場所
+            = f.label :place, "場所",class: "form__label"
             = f.text_field :place, class: "form-control", autocomplete: "off", placeholder: "開催場所を入力して下さい"
 
           .form-group.event__comment
-            = f.label :comment, class: "form__label" do
-              コメント
+            = f.label :comment, "コメント",class: "form__label"
             = f.text_area :comment, class: "form-control", autocomplete: "off", placeholder: "コメントを入力して下さい"
           = f.submit "実行", class: "btn w-100 participation-btn"
