@@ -4,6 +4,12 @@
       .mx-auto.create-event__input-form
         = form_for [@event] do |f|
           .form-group.event__name
+            = f.label :group_id, class: "form__label" do
+              主催グループ
+            = f.input
+            = f.text_field :group_id, class: "form-control", autocomplete: "off", placeholder: "イベント名を入力して下さい"
+            = f.hidden_field :group_id, class: "form-control"
+          .form-group.event__name
             = f.label :name, class: "form__label" do
               イベント名
             = f.text_field :name, class: "form-control", autocomplete: "off", placeholder: "イベント名を入力して下さい"

@@ -1,0 +1,35 @@
+= render "./shared/header"
+%body.main
+  .container.max-w.mb-2
+    .row
+      .col-12
+
+
+%body.main
+  %H1.text-center.create-event__title= "#{current_user.name}のマイページ"
+  .container
+
+    .row
+      %p.mx-auto.create-event__title メンバー
+    .row
+      - @group.users do |user|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event= user.name
+
+    .row
+      %p.mx-auto.create-event__title 主催するイベント
+    .row
+      - @group.events.each do |event|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event= event.name
+
+    .row
+      %p.mx-auto.create-event__title 招待用URL
+    .row
+      .col-md-6
+        .card.mx-auto.mb-2.border-0.event= @group.token
+
+
+
+= render "./shared/footer"
+

@@ -3,6 +3,16 @@
 %body.main
   %H1.text-center.create-event__title= "#{current_user.name}のマイページ"
   .container
+
+    .row
+      %p.mx-auto.create-event__title 所属するグループ
+    .row
+      - @groups.each do |group|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event
+            = link_to "", group_path(group)
+            = render "./groups/group", group: group
+
     .row
       %p.mx-auto.create-event__title 作成したイベント
     .row
