@@ -1,14 +1,14 @@
 class User < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many      :groups, through: :group_members
   has_many      :group_members, dependent: :destroy
-  # attr_accessible :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
+  # attr_accessible :email, :password, :remember_me, :image, :image_cache, :remove_image
 
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
+  validates_presence_of   :image
+  validates_integrity_of  :image
+  validates_processing_of :image
 
   has_many    :events
   has_many    :events, through: :attend_statuses

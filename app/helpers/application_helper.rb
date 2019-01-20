@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def lList_image(object)
     content_tag(:span, "", class: "object_image") do
-      image_tag object.avatar
+      image_tag object.image
     end
   end
 

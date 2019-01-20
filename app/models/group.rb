@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  mount_uploader :image, AvatarUploader
+  mount_uploader :image, ImageUploader
   before_create :set_token
   has_many      :users, through: :group_members
   has_many      :group_members, dependent: :destroy
