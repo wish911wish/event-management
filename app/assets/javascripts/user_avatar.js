@@ -26,7 +26,7 @@ $(document).on("turbolinks:load", function() {
    }
   }
 
-  $("#user_avatar").on("change", function(e) {
+  $(".js-upload-image").on("change", function(e) {
     var file = e.target.files
     previewUserImage(file)
   });
