@@ -14,7 +14,7 @@
                   = fa_icon 'plus-square 4x'
                   = image_tag current_user.avatar
 
-            = f.file_field :avatar
+            = f.file_field :avatar, class: "js-upload-image"
             = f.hidden_field :avatar_cache
           .field.mb-2
             = f.label :name do

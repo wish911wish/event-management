@@ -6,6 +6,18 @@
       .col-12
         .mx-auto.create-group__input-form
           = form_for [@group] do |f|
+
+            .field.mb-2.image-field.text-center
+              .text-left グループ画像
+              = f.label :image, class: "mx-auto" do
+                .image-preview
+                  .image-display-area
+                    = fa_icon 'plus-square 4x'
+                    = image_tag @group.image
+
+              = f.file_field :image, class: "js-upload-image"
+              = f.hidden_field :image_cache
+
             .form-group.group__name
               = f.label :name, class: "form__label" do
                 グループ名
