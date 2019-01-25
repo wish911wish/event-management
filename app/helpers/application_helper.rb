@@ -19,5 +19,4 @@ module ApplicationHelper
       object.name
     end
   end
-
 end

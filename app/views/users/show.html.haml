@@ -9,9 +9,11 @@
     .row
       - @groups.each do |group|
         .col-md-6
-          .card.mx-auto.mb-2.border-0.event
-            = link_to "", group_path(group)
-            = render "./groups/group", group: group
+          .card.mx-auto.mb-2.border-0.py-2.px-3
+            %li.d-flex.align-items-center
+              = lList_image(group)
+              = lList_name(group)
+              = link_to "", group_path(group)
 
     .row
       %p.mx-auto.create-event__title 作成したイベント
