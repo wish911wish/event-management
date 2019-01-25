@@ -1,4 +1,10 @@
 
+::selection {
+    background: $main-color;
+    color: $white;
+}
+
+
 ul {
   list-style: none;
   padding: 0;
@@ -127,3 +133,14 @@ a:hover {
     }
   }
 }
+
+.url-field{
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+
+
+
