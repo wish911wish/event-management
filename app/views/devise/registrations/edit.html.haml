@@ -8,14 +8,14 @@
           = devise_error_messages!
           .field.mb-2.image-field.text-center
             .text-left プロフィール画像
-            = f.label :avatar, class: "mx-auto" do
+            = f.label :image, class: "mx-auto" do
               .image-preview
                 .image-display-area
                   = fa_icon 'plus-square 4x'
-                  = image_tag current_user.avatar
+                  = image_tag current_user.image
 
-            = f.file_field :avatar
-            = f.hidden_field :avatar_cache
+            = f.file_field :image, class: "js-upload-image"
+            = f.hidden_field :image_cache
           .field.mb-2
             = f.label :name do
               ユーザー名

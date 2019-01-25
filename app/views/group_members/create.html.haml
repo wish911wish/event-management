@@ -1,0 +1,14 @@
+= render "./shared/header"
+%body.main
+  .container.max-w
+    %H1.text-center.create-event__title= "#{@group.name}に参加しました"
+
+    .row
+      .col-12.text-center
+        .mx-auto.border-0
+        = link_to "トップページへ戻る", root_path
+
+
+
+= render "./shared/footer"
+

@@ -1,0 +1,31 @@
+= render "./shared/header"
+%body.main
+  .container.max-w
+    %H1.text-center.create-event__title= "#{@group.name}のページ"
+    .row.mb-2
+      .col-sm-12
+        %h5.text-center.main-color メンバー
+        .participant
+          %ul.membars-list
+            - @group.users.each do |member|
+              %li.user-list.d-flex.align-items-center.mb-2{id: "user-id_#{member}"}
+                = lList_image(member)
+                = lList_name(member)
+    %h5.text-center.main-color 招待用URL
+    .row.mb-2
+      .col-md-12
+        .url-field.px-3.py-2= "#{root_url(only_path: false)}groups/#{@group.id}/#{@group.token}"
+
+  .container
+    %h5.text-center.main-color 主催するイベント
+    .row
+      - @group.events.each do |event|
+        .col-md-6
+          .card.mx-auto.mb-2.border-0.event
+            = link_to "", event_path(event)
+            = render "./events/event", event: event
+
+
+
+= render "./shared/footer"
+

@@ -1,0 +1,18 @@
+.row.mb-2
+  .col-sm-12
+    %h5.text-center.main-color 参加者
+    .participant
+      %ul.participant-list
+        - participants.each do |participant|
+          %li.user-list.d-flex.align-items-center.mb-2{id: "user-id_#{participant.user.id}"}
+            = lList_image(participant.user)
+            = lList_name(participant.user)
+.row.mb-5
+  .col-sm-12
+    %h5.text-center.main-color 欠席者
+    .participant
+      %ul.absentee-list
+        - absentees.each do |absentee|
+          %li.user-list.d-flex.align-items-center.mb-2{id: "user-id_#{absentee.user.id}"}
+            = lList_image(absentee.user)
+            = lList_name(absentee.user)

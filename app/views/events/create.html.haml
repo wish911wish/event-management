@@ -7,9 +7,9 @@
         .mx-auto.border-0
           イベントが作成されました。以下のURLを皆に知らせてあげましょう。以降、このURLページにて各自の出欠情報を入力してもらいます。
 
-        .mx-auto.border-0= "#{root_url(only_path: false)}#{@event.id}/#{@event.token}"
+        .mx-auto.border-0= "#{root_url(only_path: false)}#{@event.id}/attend_statuses/#{@event.token}"
 
-        = link_to "イベントページ", "/events/#{@event.id}/#{@event.token}"
+        = link_to "イベントページ", "/events/#{@event.id}/attend_statuses/#{@event.token}"
 
   .container.max-w.mb-2
     .row

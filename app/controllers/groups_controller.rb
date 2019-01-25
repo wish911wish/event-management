@@ -19,7 +19,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    render :new unless @group.save
+    if @group.save
+      GroupMember.create(user_id: current_user.id, group_id: @group.id)
+    else
+      render :new
+    end
   end
 
   def update
@@ -36,7 +40,7 @@ class GroupsController < ApplicationController
 
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :image)
     end
 
 end

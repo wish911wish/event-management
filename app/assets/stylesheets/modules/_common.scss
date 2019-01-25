@@ -1,4 +1,10 @@
 
+::selection {
+    background: $main-color;
+    color: $white;
+}
+
+
 ul {
   list-style: none;
   padding: 0;
@@ -17,17 +23,22 @@ a:hover {
 }
 
 .header__title{
-   color: $main-color;
+  color: $main-color;
 }
 .main {
-   background-color: $white;
+  background-color: $white;
 }
 .footer {
-   color: $main-color;
+  color: $main-color;
 }
 
-.create-event__title{
-  color: $accent-1st-color;
+.create-event{
+  &__title{
+    color: $accent-1st-color;
+  }
+  &__input-form{
+    position: relative;
+  }
 }
 
 .image-field{
@@ -70,3 +81,66 @@ a:hover {
             transform: translate(-50%, -50%);
   }
 }
+
+.object_image{
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  float: left;
+  margin-right: 10px;
+  border-radius: 20px;
+  img {
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+.object_name{
+  display: inline-block;
+}
+
+.organizer_group{
+  height: auto;
+  & .selected-group{
+    height: 40px;
+  }
+}
+
+.selection-candidate{
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: $Lightgrey;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  & li{
+    margin-bottom: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    &:hover{
+      background-color: $white;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.url-field{
+  color: $font-sub-color;
+  background-color: $Lightgrey;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+
+
+
