@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rb-readline'
+  gem 'dotenv-rails'
 
 end
 
@@ -78,3 +79,7 @@ gem 'kaminari'
 gem 'carrierwave'
 
 gem 'mini_magick'
+
+gem 'omniauth'
+
+gem 'omniauth-facebook'
