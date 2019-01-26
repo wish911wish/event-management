@@ -1,9 +1,10 @@
+#fb-root
 = render "./shared/header"
 %body.main
   %H1.text-center.create-event__title 新規登録
   .container.max-w.mb-2
     .row
-      .col-12
+      .col-12.mb-5
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: :true}) do |f|
           = devise_error_messages!
           .field.mb-2
@@ -29,5 +30,13 @@
             = f.hidden_field :image_cache
           .actions.mb-2
           = f.submit "登録", class: "btn w-100 participation-btn"
+
+    .row
+      %p.mx-auto.create-event__title SNSアカウントを使用する
+    .row
+      .col-12
+        = link_to omniauth_authorize_path(:user, :facebook), class: "FbBtn d-flex align-items-center" do
+          .FbBtnLabel= "Continue with Facebook"
+
 = render "./shared/footer"
 
