@@ -1,12 +1,30 @@
 .card-body
-  %h5= event.name
-  %h6
+  .event-index
+    .event-index__image
+      - if event.group
+        = lList_image(event.group)
+      - else
+        = lList_image(User.find(event.user_id))
+    .event-index__name
+      %p.organiser-name
+        - if event.group
+          = event.group.name
+        - else
+          = User.find(event.user_id).name
+      %p.event-name
+        = event.name
+
+  .event-time
     = fa_icon 'clock-o'
     - if event.start_time.strftime('%Y%m%d') == event.end_time.strftime('%Y%m%d')
       = "#{event.start_time.strftime('%Y/%m/%d')} #{event.start_time.strftime('%H:%M')}~#{event.end_time.strftime('%H:%M')}"
     - else
       = "#{event.start_time.strftime('%Y/%m/%d')} ~ #{event.end_time.strftime('%Y/%m/%d')}"
-  %h6
+  .event-venue.mt-1
     = fa_icon 'map-marker'
     = event.place
-  %p= event.comment
+
+  .event-comment.mt-1
+    = event.comment
+
+
