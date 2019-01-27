@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.order("updated_at DESC").page(params[:page]).per(10)
+    @events = Event.where('end_time >= ?', Time.now).order("start_time ASC").page(params[:page]).per(10)
   end
 
   def show
