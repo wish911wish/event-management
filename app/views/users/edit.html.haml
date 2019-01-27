@@ -1,0 +1,32 @@
+= render "./shared/header"
+%body.main
+  %H1.text-center.accent-1st-color ユーザー情報編集
+  .container.max-w.mb-2
+    .row
+      .col-12
+        = form_for(current_user) do |f|
+          .field.mb-2.image-field.text-center
+            .text-left プロフィール画像
+            = f.label :image, class: "mx-auto" do
+              .image-preview
+                .image-display-area
+                  = fa_icon 'plus-square 4x'
+                  = image_tag current_user.image
+
+            = f.file_field :image, class: "js-upload-image"
+            = f.hidden_field :image_cache
+          .field.mb-2
+            = f.label :name do
+              ユーザー名
+            = f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name"
+          .field.mb-2
+            = f.label :email do
+              e-mail
+            = f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email"
+          .actions
+            = f.submit "Update", class: "btn w-100 participation-btn"
+    - if current_user.provider.blank?
+      .row
+        .col-12
+          = link_to "パスワードの変更はこちら", edit_user_registration_path(current_user), class: "accent-1st-color"
+= render "./shared/footer"

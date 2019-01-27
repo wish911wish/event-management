@@ -18,6 +18,11 @@ a:hover {
   color: $main-color;
 }
 
+.accent-1st-color{
+  color: $accent-1st-color;
+}
+
+
 .container{
   max-width: 992px;
 }
@@ -143,4 +148,32 @@ a:hover {
 }
 
 
+.FbBtn {
+    background-color: #4267B2;
+    height: 45px;
+    width: 300px;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
+.FbBtn:after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    background-image: url("flogo-HexRBG-Wht-100.png");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.FbBtnLabel {
+    color: #ffffff;
+    top: 13px;
+    text-align: center;
+    margin: 0 auto;
+}
