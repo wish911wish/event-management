@@ -7,16 +7,6 @@
       .col-12.mb-5
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: :true}) do |f|
           = devise_error_messages!
-          .field.mb-2.image-field.text-center
-            .text-left プロフィール画像
-            = f.label :image, class: "mx-auto" do
-              .image-preview
-                = fa_icon 'plus-square 4x'
-                .image-display-area
-                  = image_tag "/uploads/no_image.png"
-
-            = f.file_field :image, class: "js-upload-image"
-            = f.hidden_field :image_cache
           .field.mb-2
             = f.label :name do
               ユーザー名
