@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     get 'attend_statuses/:token' => 'attend_statuses#edit'
   end
   resources :groups, except: [:destroy] do
-    get '/:token' => 'group_members#new'
-    post '/:token' => 'group_members#create'
+    get '/group_members/:token' => 'group_members#new'
+    post '/group_members/:token' => 'group_members#create'
   end
 
 end
