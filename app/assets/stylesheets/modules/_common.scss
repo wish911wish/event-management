@@ -52,19 +52,16 @@ a:hover {
   }
 }
 
-.image-display-area{
+.image-preview{
   position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
   &:hover{
     opacity: .6;
     cursor: pointer;
   }
-  & img{
+  & i{
+    opacity: .6;
+    z-index: 1;
     position: absolute;
-    height: 200px;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -73,10 +70,17 @@ a:hover {
          -o-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
   }
-  & i{
-    opacity: .6;
-    z-index: 1;
+}
+
+.image-display-area{
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  & img{
     position: absolute;
+    height: 200px;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
