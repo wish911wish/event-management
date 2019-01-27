@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   before_create :set_token
   belongs_to    :user
+  belongs_to    :group
   has_many      :users, through: :attend_statuses
   has_many      :attend_statuses, dependent: :destroy
   validates     :name, presence: true

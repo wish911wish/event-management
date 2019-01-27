@@ -4,13 +4,9 @@
   max-width: 400px;
   min-width: 350px;
   color: $font-sub-color;
-  background-color: $Lightgrey;
-  &:hover{
-    background-color: $main-color;
-    color: $white;
-    animation-name: select-event;
-    animation-duration: .3s;
-  }
+  border-color: #FB9D7E;
+  border-width: 5px 0 0 0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
 @keyframes select-event{
@@ -18,46 +14,44 @@
   100% {background-color: $main-color;}
 }
 
-
-
-
 .card-body{
   height: 175px;
+  border-color: $main-color;
+  border-width: 5px 0 0 0;
+}
+
+.event-index__image > .object_image{
+  margin-top: 3px;
+}
+
+.event{
+  &-time{
+    font-size: 0.8rem;
+  }
+
+  &-venue{
+    font-size: 0.8rem;
+  }
+}
+
+
+.organiser-name{
+  font-size: 0.8rem;
+  margin: 0;
+}
+.event-name{
+  font-size: 1.3rem;
+  color: $font-main-color;
+  margin: 0 0 0 0;
 }
 
 .pagination{
   display: inline-block;
-  & .page{
+  & * {
     color: $main-color;
-    & a{
-      color: $main-color;
-    }
   }
-  & .next{
-    color: $main-color;
-    & a{
-      color: $main-color;
-    }
-  }
-  & .last{
-    color: $main-color;
-    & a{
-      color: $main-color;
-    }
-  }
-  & .first{
-    color: $main-color;
-    & a{
-      color: $main-color;
-    }
-  }
-  & .prev{
-    color: $main-color;
-    & a{
-      color: $main-color;
-    }
-  }
-  & .current{
-    color: $font-sub-color;
-  }
+}
+
+.current{
+  color: $font-sub-color;
 }

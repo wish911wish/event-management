@@ -23,11 +23,6 @@
             = f.label :password_confirmation do
               確認用パスワード
             = f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password"
-          .field.mb-2
-            = f.label :image do
-              プロフィール画像
-            = f.file_field :image
-            = f.hidden_field :image_cache
           .actions.mb-2
           = f.submit "登録", class: "btn w-100 participation-btn"
 

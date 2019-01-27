@@ -2,6 +2,11 @@
 %body.main
   .container.max-w
     %H1.text-center.create-event__title= "#{@group.name}のページ"
+    .image-display-area.mx-auto.mb-2
+      = image_tag @group.image
+    .row.mb-2
+      .col-sm-12.text-center
+        = link_to "グループを編集する", edit_group_path(@group), class: "btn mb-2 accent-1st-color-btn author-command__edit"
     .row.mb-2
       .col-sm-12
         %h5.text-center.main-color メンバー
@@ -11,10 +16,10 @@
               %li.user-list.d-flex.align-items-center.mb-2{id: "user-id_#{member}"}
                 = lList_image(member)
                 = lList_name(member)
-    %h5.text-center.main-color 招待用URL
     .row.mb-2
       .col-md-12
-        .url-field.px-3.py-2= "#{root_url(only_path: false)}groups/#{@group.id}/#{@group.token}"
+        %h5.text-center.main-color 招待用URL
+        .url-field.px-3.py-2= "#{root_url(only_path: false)}groups/#{@group.id}/group_members/#{@group.token}"
 
   .container
     %h5.text-center.main-color 主催するイベント
