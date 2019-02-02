@@ -181,3 +181,13 @@ a:hover {
     text-align: center;
     margin: 0 auto;
 }
+
+.datepicker-days th.dow:nth-last-child(2),
+.datepicker-days td:nth-last-child(2) {
+    color: #00f;
+}
+.datepicker-days th.dow:last-child,
+.datepicker-days td:last-child {
+    color: #f00;
+}
+
