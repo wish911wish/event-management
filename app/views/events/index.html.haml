@@ -2,15 +2,19 @@
 
 %body.main
   .container
-    %h5.text-center.main-color イベント一覧
     .row
-      - @events.each do |event|
-        .col-md-6
-          .card.mx-auto.mb-2.event
-            = link_to "", event_path(event)
-            = render "event", event: event
+      .col-12.text-center
+        %h5.text-center.main-color イベント一覧
+    .row
+      .col-12
+        .serch-box.text-center.mb-2
+          = form_tag(search_events_path, class: "js-serch-event", method: :get) do
+            = text_field :serch_date, "", class: "serch-box__date datetimepicker-input js-serch-event__input", id: "datetimepicker_serch", name: "serch_date", autocomplete: "off", placeholder: "日付を選択", data: {toggle: "datetimepicker", target: "#datetimepicker_serch"}
+            = button_tag class: "serch-box__button js-serch-event__button", method: :get, remote: :true do
+              = fa_icon 'search'
+    .row.js-event-index
+      = render "events", events: @events
     .row
       .col-12.text-center
         = paginate @events
-
 = render "./shared/footer"

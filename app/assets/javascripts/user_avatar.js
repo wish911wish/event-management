@@ -31,6 +31,3 @@ $(document).on("turbolinks:load", function() {
     previewUserImage(file)
   });
 })
-
-
-

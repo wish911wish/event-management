@@ -1,7 +1,6 @@
 $(document).on("turbolinks:load", function() {
 
   $(".js-group").on("click", function() {
-    console.log('kurikku')
     $(".js-group__list:not(:animated)").slideDown();
   });
 

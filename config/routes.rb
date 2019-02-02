@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :events do
     resources :attend_statuses, only: [:create]
     get 'attend_statuses/:token' => 'attend_statuses#edit'
+    collection do
+      get 'search'
+    end
   end
   resources :groups, except: [:destroy] do
     get '/group_members/:token' => 'group_members#new'
