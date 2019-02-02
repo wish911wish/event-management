@@ -1,0 +1,4 @@
+$(".js-event-index").empty();
+$('.js-event-index').prepend("<%= j(@event_list) %>");
+$(".paginator").empty();
+$(".paginator").html("<%= j(@paginator) %>");
