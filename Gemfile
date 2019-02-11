@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'rb-readline'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 
 end
 
