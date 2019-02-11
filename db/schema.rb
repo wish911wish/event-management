@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190125065509) do
+ActiveRecord::Schema.define(version: 20190211084948) do
 
   create_table "attend_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20190125065509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_group_members_on_group_id", using: :btree
+    t.index ["user_id", "group_id"], name: "index_group_members_on_user_id_and_group_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_group_members_on_user_id", using: :btree
   end
 
@@ -74,9 +75,4 @@ ActiveRecord::Schema.define(version: 20190125065509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "attend_statuses", "events"
-  add_foreign_key "attend_statuses", "users"
-  add_foreign_key "events", "groups"
-  add_foreign_key "group_members", "groups"
-  add_foreign_key "group_members", "users"
 end
