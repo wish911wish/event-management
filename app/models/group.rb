@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many      :group_members, dependent: :destroy
   has_many      :events
 
-  validates_presence_of   :image
+  # validates_presence_of   :image
   validates_integrity_of  :image
   validates_processing_of :image
 
