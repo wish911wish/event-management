@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many    :events, through: :attend_statuses
   has_many    :attend_statuses
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
+
   class << self
     def find_or_create_for_oauth(auth)
       mount_uploader :image, ImageUploader

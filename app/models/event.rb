@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many      :users, through: :attend_statuses
   has_many      :attend_statuses, dependent: :destroy
   validates     :name, presence: true
+  validates     :user_id, presence: true
 
   private
   def set_token
