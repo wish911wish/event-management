@@ -37,11 +37,12 @@ jobs:
           name: Wait for db
           command: |
             dockerize -wait tcp://localhost:3306 -timeout 1m
-
       - run:
-            name: docker-compose up
-            command: |
-                 docker-compose -f ./docker-compose.yml up -d
+          name: Build docker image
+          command: |
+            docker build .
 
       - run: bundle exec rake db:create
+
+
 
