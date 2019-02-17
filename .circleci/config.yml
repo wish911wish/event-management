@@ -4,7 +4,8 @@ jobs:
     docker:
       - image: nozomi911/event-management:0.1
       - image: mariadb
-        environment: ${MYSQL_PASSWORD}
+        environment:
+          MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
     working_directory: ~/event-management
 
