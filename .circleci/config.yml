@@ -2,7 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1-node-browsers
+      - image: nozomi911/event-management:0.1
+      - image: mariadb
+
     working_directory: ~/event-management
 
     steps:
