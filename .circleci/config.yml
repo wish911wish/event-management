@@ -26,5 +26,10 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: Wait for db
+          command: |
+            dockerize -wait tcp://localhost:3306 -timeout 1m
+
       - run: bundle exec rake db:create
 
