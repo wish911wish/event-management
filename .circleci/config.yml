@@ -36,6 +36,10 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle \
+
+      - run:
+          name: install dependencies
+          command: |
             apk add --no-cache \
               py-pip=9.0.0-r1
             pip install \
