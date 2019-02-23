@@ -4,18 +4,12 @@ jobs:
     working_directory: ~/event-management
     docker:
       - image: nozomi911/event-management:0.1
-      - image: circleci/mariadb
+      - image: circleci/mariadb:latest
         environment:
           MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
     steps:
       - checkout
-      - run:
-          name: Check Scripts
-          command: |
-            find . -type f -name '*.sh' | wc -l
-            find . -type f -name '*.sh' | xargs shellcheck --external-sources
-
 
       - run:
           name: Install Docker Compose
