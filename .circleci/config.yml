@@ -9,6 +9,19 @@ jobs:
           MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
     steps:
+      - type: shell
+        pwd: /
+        shell: /bin/ash --login
+        command: |
+          rm /bin/sh
+          ln -s /bin/ash /bin/sh
+          echo $HOME
+          ls -alh /bin
+          which /bin/sh
+          which /bin/ash
+          echo $PATH
+          export PATH="$PATH:~/.yarn/bin"
+
       - checkout
 
       - run:
