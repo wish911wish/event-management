@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     working_directory: ~/event-management
-    machine:
+    docker:
       - image: nozomi911/event-management:0.1
       - image: circleci/mariadb
         environment:
