@@ -2,30 +2,32 @@ version: 2
 jobs:
   build:
     working_directory: ~/event-management
+    docker:
+      - image: nozomi911/event-management:0.1
+      - image: circleci/mariadb
+        environment:
+          MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
-    machine:
-      image: nozomi911/event-management:0.1
-      image: circleci/mariadb
-      #   environment:
-      #     MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     steps:
       - checkout
+
       - run:
           name: Build
           command: docker-compose build
 
-      # - run:
-      #     name: docker-compose up
-      #     command: docker-compose up -d
+      - run:
+          name: docker-compose up
+          command: docker-compose up -d
 
-      # - run:
-      #     name: sleep for waiting launch db
-      #     command: sleep 1
 
-      # - run:
-      #     name: "before_test: setup db"
-      #     command: docker-compose run web rails db:create db:migrate
+      - run:
+          name: sleep for waiting launch db
+          command: sleep 1
 
-      # - run:
-      #     name: "before_test: setup db"
-      #     command: docker-compose run web bundle exec rspec
+      - run:
+          name: "before_test: setup db"
+          command: docker-compose run web rails db:create db:migrate
+
+      - run:
+          name: "before_test: setup db"
+          command: docker-compose run web bundle exec rspec
