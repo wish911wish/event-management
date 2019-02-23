@@ -9,6 +9,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
     steps:
+      - checkout
+
       - run:
           name: Install Docker Compose
           command: |
@@ -17,7 +19,6 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
       - setup_remote_docker
-      - checkout
 
       - run:
           name: Build
