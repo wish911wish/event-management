@@ -1,74 +1,33 @@
 version: 2
 jobs:
   build:
-    docker:
+    working_directory: ~/event-management
+    machine:
       - image: nozomi911/event-management:0.1
       - image: circleci/mariadb
         environment:
           MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
 
-    working_directory: ~/event-management
-
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
 
       - run:
-          name: Install Docker client
-          command: |
-            set -x
-            VER="17.03.0-ce"
-            curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
-            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-            mv /tmp/docker/* /usr/bin
-
-      - run: |
-          TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t   nozomi911/event-management:0.1 .
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
+          name: Build
+          command: docker-compose build
 
       - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle \
-
-      - run:
-          name: install dependencies
-          command: |
-            apk add --no-cache \
-              py-pip=9.0.0-r1
-            pip install \
-              docker-compose==1.12.0 \
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          name: docker-compose up
+          command: docker-compose up -d
 
 
       - run:
-         name: install dockerize
-         command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-         environment:
-          DOCKERIZE_VERSION: v0.6.0
+          name: sleep for waiting launch db
+          command: sleep 1
 
       - run:
-          name: Wait for db
-          command: |
-            dockerize -wait tcp://localhost:3306 -timeout 1m
-      - run:
-          name: Build docker image
-          command: |
-            docker build .
+          name: "before_test: setup db"
+          command: docker-compose run web rails db:create db:migrate
 
       - run:
-          name: Run tests
-          command: |
-            docker-compose -f ./docker-compose.yml up \
-
-      - run: bundle exec rake db:create
+          name: "before_test: setup db"
+          command: docker-compose run web bundle exec rspec
