@@ -5,7 +5,7 @@ jobs:
 
     machine:
       image: nozomi911/event-management:0.1
-      # - image: circleci/mariadb
+      image: circleci/mariadb
       #   environment:
       #     MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     steps:
