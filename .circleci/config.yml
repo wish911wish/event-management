@@ -22,7 +22,8 @@ jobs:
 
       - run:
           name: Build
-          command: docker-compose build
+          command: |
+            ash entrypoint.sh
 
       - run:
           name: docker-compose up
