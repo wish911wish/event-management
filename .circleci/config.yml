@@ -22,8 +22,7 @@ jobs:
 
       - run:
           name: test
-          command: |
-            mkdir docker-compose
+          command: which sh
 
 
 
