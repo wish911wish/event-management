@@ -29,13 +29,12 @@ jobs:
 
       - run:
           name: Build
-          command: |
-            ash docker-compose build
+          command: ash docker-compose build
+
 
       - run:
-          name: docker-compose up
-          command: docker-compose up -d
-
+          name: Build
+          command: ash docker-compose up -d
 
       - run:
           name: sleep for waiting launch db
@@ -43,8 +42,8 @@ jobs:
 
       - run:
           name: "before_test: setup db"
-          command: docker-compose run web rails db:create db:migrate
+          command: ash docker-compose run web rails db:create db:migrate
 
       - run:
           name: "before_test: setup db"
-          command: docker-compose run web bundle exec rspec
+          command: ash docker-compose run web bundle exec rspec
