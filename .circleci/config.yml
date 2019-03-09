@@ -5,15 +5,16 @@ jobs:
     steps:
       - checkout
 
-      - run:
-            name: docker-compose up
-            command: |
-              docker-compose up -d
+      # - run:
+      #       name: docker-compose up
+      #       command: |
+      #         docker-compose up -d
 
       - run:
             name: wait
             command: |
-              sleep 1m
+              export TEST_VALUE
+              printenv TEST_VALUE
 
       - run:
             name: docker-compose run web rails db:create
