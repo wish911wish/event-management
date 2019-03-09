@@ -1,15 +1,18 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/event-management
     docker:
       - image: nozomi911/event-management:0.1
       - image: circleci/mariadb:latest
         environment:
           MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    working_directory: ~/event-management
 
     steps:
       - checkout
+
+
+      - setup_remote_docker
 
       - run:
           name: Install Docker Compose
@@ -17,13 +20,6 @@ jobs:
             curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
-
-      - setup_remote_docker
-
-      - run:
-          name: test
-          command: docker version
-
 
 
       - run:
