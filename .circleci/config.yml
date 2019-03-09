@@ -9,8 +9,6 @@ jobs:
             name: docker-compose up
             command: |
               docker-compose up -d
-              docker-compose run web rails db:create
-              docker-compose run web rails db:migrate
 
       - run:
             name: wait for db
