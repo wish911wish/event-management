@@ -11,3 +11,15 @@ jobs:
               docker-compose up -d
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
+
+      - run:
+            name: wait for db
+            command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run:
+            name: docker-compose run web rails db:create
+            command: |
+              docker-compose run web rails db:create
+              docker-compose run web rails db:migrate
+
+
