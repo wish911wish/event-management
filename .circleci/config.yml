@@ -11,6 +11,11 @@ jobs:
               docker-compose up -d
 
       - run:
+            name: wait
+            command: |
+              sleep 1m
+
+      - run:
             name: docker-compose run web rails db:create
             command: |
               docker-compose run web rails db:create
