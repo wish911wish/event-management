@@ -30,6 +30,10 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
+      - run: |
+          TAG=0.1.$CIRCLE_BUILD_NUM
+          docker build -t event-management .
+
 
       - run:
           name: Build
