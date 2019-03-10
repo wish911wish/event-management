@@ -3,11 +3,7 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout
-
-              export TEST_VALUE
-              printenv TEST_VALUE
-
+      - checkout:
 
       - run:
             name: environment test
