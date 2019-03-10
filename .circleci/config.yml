@@ -8,12 +8,7 @@ jobs:
       - run:
             name: environment test
 
-            environment:
-              # MYSQL_PASSWORD: "test"
-              MYSQL_UESR: TEST_VALUE
-            command: |
-              export MYSQL_UESR
-              printenv MYSQL_UESR
+            command: echo $ENV_FILE | base64 --decode > .env
 
 
       # - run:
