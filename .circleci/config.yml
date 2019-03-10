@@ -15,6 +15,6 @@ jobs:
             command: |
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
-            environment: |
-              MYSQL_PASSWORD: <%= ENV['MYSQL_PASSWORD'] %>
-              MYSQL_UESR: <%= ENV['MYSQL_UESR'] %>
+            environment:
+              MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+              MYSQL_UESR: ${MYSQL_UESR}
