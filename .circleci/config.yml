@@ -9,5 +9,6 @@ jobs:
             command: |
               echo $ENV_FILE | base64 --decode > .env
               docker-compose up -d
+              sleep 1m
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
