@@ -12,9 +12,9 @@ jobs:
 
       - run:
             name: docker-compose run web rails db:create
+            environment:
+              MYSQL_PASSWORD: "test"
+              MYSQL_UESR: "test"
             command: |
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
-            environment:
-              MYSQL_PASSWORD: MYSQL_PASSWORD
-              MYSQL_UESR: MYSQL_UESR
