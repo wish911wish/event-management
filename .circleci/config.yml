@@ -8,9 +8,9 @@ jobs:
       - run:
             name: environment test
 
-            environment:
-              MYSQL_PASSWORD: "test"
-              MYSQL_UESR: "test"
+            # environment:
+            #   MYSQL_PASSWORD: "test"
+            #   MYSQL_UESR: "test"
             command: |
               export MYSQL_UESR
               printenv MYSQL_UESR
