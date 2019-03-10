@@ -5,21 +5,16 @@ jobs:
     steps:
       - checkout
 
-      # - run:
-      #       name: docker-compose up
-      #       command: |
-      #         docker-compose up -d
-
       - run:
-            name: wait
+            name: docker-compose up
             command: |
-              export TEST_VALUE
-              printenv TEST_VALUE
+              docker-compose up -d
 
       - run:
             name: docker-compose run web rails db:create
             command: |
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
-
-
+            environment: |
+              MYSQL_PASSWORD: MYSQL_PASSWORD
+              MYSQL_UESR: MYSQL_UESR
