@@ -27,10 +27,6 @@ jobs:
               docker-compose run web bundle exec rspec
 
       - run:
-          name: Tagging Docker Image
-          command: docker tag event-management:latest 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management:latest
-
-      - run:
           name: Login to AWS ECR
           command: eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
 
