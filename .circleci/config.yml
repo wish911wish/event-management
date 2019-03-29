@@ -5,6 +5,18 @@ jobs:
     steps:
       - checkout:
       - run:
+          name: Setup common environment variables
+          command: |
+            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' &gt;&gt; $BASH_ENV
+            echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:${CIRCLE_SHA1}"' &gt;&gt; $BASH_ENV
+      - run:
+          name: Setup AWS CLI
+          command: |
+            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            unzip awscli-bundle.zip
+            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+      - run:
             name: docker-compose up
             command: |
               echo $ENV_FILE | base64 --decode > .env
@@ -13,3 +25,11 @@ jobs:
               docker-compose run web rails db:create
               docker-compose run web rails db:migrate
               docker-compose run web bundle exec rspec
+
+      - run:
+          name: Login to AWS ECR
+          command: eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - run:
+          name: Push Docker Image
+          command: |
+            docker push ${FULL_IMAGE_NAME}
