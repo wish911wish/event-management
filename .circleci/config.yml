@@ -28,7 +28,7 @@ jobs:
 
       - run:
           name: Tagging Docker Image
-          command: docker tag event-management 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management:latest
+          command: docker tag event-management:latest 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management:latest
 
       - run:
           name: Login to AWS ECR
