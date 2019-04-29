@@ -3,7 +3,7 @@ orbs:
   aws-ecr: circleci/aws-ecr@4.0.1
 jobs:
   build:
-    machine: true
+    docker:
     steps:
       - checkout:
       - run:
