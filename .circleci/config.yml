@@ -5,28 +5,28 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout:
-      - run:
-          name: Setup common environment variables
-          command: |
-            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
-            echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
-      - run:
-          name: Setup AWS CLI
-          command: |
-            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-            unzip awscli-bundle.zip
-            sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+      # - checkout:
+      # - run:
+      #     name: Setup common environment variables
+      #     command: |
+      #       echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+      #       echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
+      # - run:
+      #     name: Setup AWS CLI
+      #     command: |
+      #       curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+      #       unzip awscli-bundle.zip
+      #       sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
-      - run:
-            name: docker-compose up
-            command: |
-              echo $ENV_FILE | base64 --decode > .env
-              docker-compose up -d
-              sleep 1m
-              docker-compose run web rails db:create
-              docker-compose run web rails db:migrate
-              docker-compose run web bundle exec rspec
+      # - run:
+      #       name: docker-compose up
+      #       command: |
+      #         echo $ENV_FILE | base64 --decode > .env
+      #         docker-compose up -d
+      #         sleep 1m
+      #         docker-compose run web rails db:create
+      #         docker-compose run web rails db:migrate
+      #         docker-compose run web bundle exec rspec
 
       # - run:
       #     name: Tagging Docker Image
