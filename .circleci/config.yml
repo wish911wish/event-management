@@ -1,10 +1,10 @@
 version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@4.0.1
-jobs:
-  build:
-    machine: true
-    steps:
+# jobs:
+#   build:
+#     machine: true
+#     steps:
       # - checkout:
       # - run:
       #     name: Setup common environment variables
