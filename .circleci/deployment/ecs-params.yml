@@ -13,4 +13,3 @@ run_params:
       security_groups:
         - "sg-0d82ce7d4fd937dd4"
       assign_public_ip: ENABLED
-
