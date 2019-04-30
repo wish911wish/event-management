@@ -2,7 +2,7 @@ workflow:
   version: 2
   workflow:
     jobs:
-      build:
+      - build:
         machine: true
         steps:
           - checkout:
