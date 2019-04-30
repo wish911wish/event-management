@@ -64,7 +64,7 @@ jobs:
               service up
 
       - run:
-          name: DB migrarion
+          name: DB create
           command: |
             ecs-cli compose \
               --file .circleci/deployment/db-create.yml \
@@ -73,3 +73,12 @@ jobs:
               --cluster-config EventManagement \
               service up
 
+      - run:
+          name: DB migration
+          command: |
+            ecs-cli compose \
+              --file .circleci/deployment/db-migration.yml \
+              --ecs-params .circleci/deployment/ecs-params.yml \
+              --project-name EventManagement_db-migration \
+              --cluster-config EventManagement \
+              service up
