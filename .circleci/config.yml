@@ -49,7 +49,7 @@ jobs:
             docker push ${FULL_IMAGE_NAME}
 
       - run:
-          name: Setup AWS ecs-cli
+          name: Rolling update
           command: |
             ecs-cli configure \
               --cluster EventManagement-cluster \
@@ -62,3 +62,14 @@ jobs:
               --project-name EventManagement \
               --cluster-config EventManagement \
               service up
+
+      - run:
+          name: DB migrarion
+          command: |
+            ecs-cli compose \
+              --file .circleci/deployment/db-create.yml \
+              --ecs-params .circleci/deployment/ecs-params.yml \
+              --project-name EventManagement_db-create \
+              --cluster-config EventManagement \
+              service up
+
