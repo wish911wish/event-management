@@ -51,4 +51,4 @@ jobs:
       - run:
           name: Setup AWS ecs-cli
           command: |
-            ecs-cli compose -f docker-compose.yml up
+            ecs-cli compose --file .circleci/deployment/app-service.yml up
