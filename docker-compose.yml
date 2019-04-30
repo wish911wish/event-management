@@ -4,28 +4,14 @@ services:
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: EventManagement_db
-        awslogs-region: ap-northeast-1
-
 
   web:
     image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
     build: .
     command: ["bundle exec rails s -p 80 -b '0.0.0.0'", ""]
-    # volumes:
-    #   - .:/usr/src/app
     ports:
       - "80:80"
     depends_on:
       - db
     tty: true
     stdin_open: true
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: EventManagement_web
-        awslogs-region: ap-northeast-1
-
