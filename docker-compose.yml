@@ -9,7 +9,6 @@ services:
       options:
         awslogs-group: EventManagement_db
         awslogs-region: ap-northeast-1
-        awslogs-stream-prefix: mariadb
 
 
   web:
@@ -29,5 +28,4 @@ services:
       options:
         awslogs-group: EventManagement_web
         awslogs-region: ap-northeast-1
-        awslogs-stream-prefix: Event-management_web
 
