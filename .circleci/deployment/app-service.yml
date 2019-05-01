@@ -3,7 +3,7 @@ services:
   db:
     image: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: ${}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     logging:
       driver: awslogs
       options:
