@@ -51,6 +51,6 @@ test:
 production:
   <<: *default
   database: event-management_production
-  host: db
+  host: localhost
   username: <%= ENV['MYSQL_UESR'] %>
   password:
