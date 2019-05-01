@@ -1,0 +1,11 @@
+version: '3'
+services:
+  EventManagement_db-migration:
+    image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
+    command: bundle exec rails db:migrate
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: EventManagement_web
+        awslogs-region: ap-northeast-1
+        awslogs-stream-prefix: Event-management_web
