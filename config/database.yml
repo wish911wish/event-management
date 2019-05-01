@@ -12,7 +12,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  host: localhost
+  host: db
   pool: 5
   username: <%= ENV['MYSQL_UESR'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: event-management_production
+  host: db
   username: <%= ENV['MYSQL_UESR'] %>
   password:
