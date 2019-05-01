@@ -50,7 +50,5 @@ test:
 #
 production:
   <<: *default
-  database: event-management_production
-  host: localhost
-  username: <%= ENV['MYSQL_UESR'] %>
-  password:
+  database: event_management_production
+  url: <%= ENV['DATABASE_URL'] %>
