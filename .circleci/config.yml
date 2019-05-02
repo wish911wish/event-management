@@ -72,3 +72,10 @@ jobs:
               --project-name EventManagement_db-migration \
               --cluster-config EventManagement \
               service up
+
+      - run:
+          name: ckeck container
+          command: |
+            ecs-cli compose \
+              --project-name EventManagement service ps \
+              --cluster-config EventManagement
