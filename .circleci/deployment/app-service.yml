@@ -13,8 +13,9 @@ services:
 
   web:
     image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
+    secrets:
+      - valueFrom: "Event-Management-DB-URL"
+        name: DATABASE_URL
     build: .
     ports:
       - "80:80"

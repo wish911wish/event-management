@@ -50,9 +50,35 @@ jobs:
 
       - run:
           name: Rolling update
-          command: aws ecs run-task --task-definition EventManagement-task-definition:1
+          command: |
+            ecs-cli configure \
+              --cluster EventManagement-cluster \
+              --default-launch-type FARGATE \
+              --region ap-northeast-1 \
+              --config-name EventManagement
+            ecs-cli compose \
+              --file .circleci/deployment/app-service.yml \
+              --ecs-params .circleci/deployment/ecs-params.yml \
+              --project-name EventManagement \
+              --cluster-config EventManagement \
+              service up
+
+      - run:
+          name: DB create
+          command: |
+            ecs-cli compose \
+              --file .circleci/deployment/db-migration.yml \
+              --ecs-params .circleci/deployment/ecs-params.yml \
+              --project-name EventManagement_db-migration \
+              --cluster-config EventManagement \
+              service up
 
       - run:
           name: DB migration
-          command: aws ecs run-task --task-definition EventManagementDBMigration-task-definition:1
-
+          command: |
+            ecs-cli compose \
+              --file .circleci/deployment/db-migration.yml \
+              --ecs-params .circleci/deployment/ecs-params.yml \
+              --project-name EventManagement_db-migration \
+              --cluster-config EventManagement \
+              service up
