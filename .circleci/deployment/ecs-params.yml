@@ -5,6 +5,17 @@ task_definition:
   task_size:
     mem_limit: 0.5GB
     cpu_limit: 256
+  services:
+    web:
+      secrets:
+        - value_from: Event-Management-DB-URL
+          name: DATABASE_URL
+
+    EventManagement_db-migration:
+      secrets:
+        - value_from: Event-Management-DB-URL
+          name: DATABASE_URL
+
 run_params:
   network_configuration:
     awsvpc_configuration:
