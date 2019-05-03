@@ -13,7 +13,7 @@ services:
 
   web:
     image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
-    secrets:
+    environment:
       - valueFrom: "Event-Management-DB-URL"
         name: DATABASE_URL
     build: .
