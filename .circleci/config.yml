@@ -64,16 +64,6 @@ jobs:
               service up
 
       - run:
-          name: DB create
-          command: |
-            ecs-cli compose \
-              --file .circleci/deployment/db-create.yml \
-              --ecs-params .circleci/deployment/ecs-params.yml \
-              --project-name EventManagement_db-create \
-              --cluster-config EventManagement \
-              service up
-
-      - run:
           name: DB migration
           command: |
             ecs-cli compose \
@@ -82,3 +72,10 @@ jobs:
               --project-name EventManagement_db-migration \
               --cluster-config EventManagement \
               service up
+
+      - run:
+          name: ckeck container
+          command: |
+            ecs-cli compose \
+              --project-name EventManagement service ps \
+              --cluster-config EventManagement

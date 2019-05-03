@@ -2,7 +2,9 @@ version: '3'
 services:
   EventManagement_db-create:
     image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
-    command: bundle exec rails db:create
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    command: bundle exec rails db:create RAILS_ENV=production
     logging:
       driver: awslogs
       options:
