@@ -6,6 +6,11 @@ task_definition:
     mem_limit: 0.5GB
     cpu_limit: 256
   services:
+    db:
+      secrets:
+        - value_from: Event-Management-DB-Password
+          name: MYSQL_ROOT_PASSWORD
+
     web:
       secrets:
         - value_from: Event-Management-DB-URL

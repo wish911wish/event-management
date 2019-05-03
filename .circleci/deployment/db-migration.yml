@@ -2,8 +2,6 @@ version: '3'
 services:
   EventManagement_db-migration:
     image: 198606590602.dkr.ecr.ap-northeast-1.amazonaws.com/event-management_web:latest
-    # environment:
-    #   DATABASE_URL: ${DATABASE_URL}
     command: bundle exec rails db:migrate
     logging:
       driver: awslogs
